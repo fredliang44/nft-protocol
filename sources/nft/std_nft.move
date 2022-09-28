@@ -24,6 +24,7 @@ module nft_protocol::std_nft {
         name: String,
         index: u64,
         url: Url,
+        uri: Url,
         attributes: Attributes
     }
 
@@ -237,6 +238,7 @@ module nft_protocol::std_nft {
             name: _,
             index: _,
             url: _,
+            uri: _,
             attributes: _,
         } = metadata;
 
@@ -265,6 +267,14 @@ module nft_protocol::std_nft {
         meta: &NftMeta,
     ): Url {
         meta.url
+    }
+
+
+    /// Get the Nft Meta's `url`
+    public fun uri(
+        meta: &NftMeta,
+    ): Url {
+        meta.uri
     }
 
     /// Get the Nft Meta's `attributes`
@@ -311,6 +321,7 @@ module nft_protocol::std_nft {
             name: args.name,
             index: args.index,
             url: args.url,
+            uri: args.url,
             attributes: args.attributes,
         };
 
